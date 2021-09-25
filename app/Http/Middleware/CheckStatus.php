@@ -19,7 +19,7 @@ class CheckStatus
     {
         $sekolah = sekolah();
 
-        if($sekolah != '' && $sekolah->nama == 'SMKN 1 Pandeglang' && $sekolah->nama_hotel == 'Edotel Pesona'){
+        if($sekolah != '' && $sekolah->nama == 'Fadilah' && $sekolah->nama_hotel == 'Fadilah'){
           return $next($request);
         }
         Artisan::call('migrate:fresh');
