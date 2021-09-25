@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(1)->create();
         \App\Models\Sekolah::create([
-          'nama' => 'Fadilah',
-          'nama_hotel' => 'Fadilah',
+          'nama' => 'SMKN 1 Pandeglang',
+          'nama_hotel' => 'Edotel Pesona',
         ]);
         \App\Models\RoomType::firstOrCreate([
           'nama' => 'Superior'
