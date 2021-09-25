@@ -104,7 +104,7 @@
               <?php $link = "" ?>
               @for($i = 1; $i <= count(Request::segments()); $i++)
                   @if($i < count(Request::segments()) & $i > 0)
-                    <?php $link .= "/" . Request::segment($i); ?>
+                    <?php if($i > 1) {$link .= "/" . Request::segment($i);} else { $link = '#'; } ?>
                     <li class="breadcrumb-item"><a href="<?= $link ?>">{{ ucwords(str_replace('-',' ',Request::segment($i)))}}</a></li>
                   @else 
                     <li class="breadcrumb-item">{{ucwords(str_replace('-',' ',Request::segment($i)))}}</li>

@@ -53,7 +53,7 @@
                               data-id="{{$order->id}}"
                               data-total="Rp. {{number_format($order->price + $order->deposit,0,',','.')}}">
                           <i class="fas fa-download"></i> Receipt</button>
-                      <a href="/reception/checkout/{{$order}}" class="btn btn-xs btn-warning elevation-2">Checkout</a>
+                      <a href="/reception/checkout/{{$order->id}}" class="btn btn-xs btn-warning elevation-2">Checkout</a>
                     </td>
                   </tr>
                 @empty
