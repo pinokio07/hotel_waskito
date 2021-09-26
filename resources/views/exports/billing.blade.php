@@ -48,7 +48,7 @@
           <tr>         
             <td>Room Type</td>
             <td style="width: 1px !important;">:</td>
-            <td class="isi">{{optional($order->room)->type}}</td>
+            <td class="isi">{{optional($order->room)->roomtype->nama}}</td>
             <td>Departure Date</td>
             <td style="width: 1px !important;">:</td>
             <td class="isi">{{$order->departure->format('d-m-Y')}}</td>
