@@ -85,54 +85,54 @@
           <td class="no-bottom-border bg-grey text-right"></td>
           <td class="no-bottom-border bg-grey text-right">Rp. {{ number_format($order->deposit, 0, ',', '.') }}</td>
         </tr>
+        @if(optional($order->expenses)->extra_bed != 0)
         <tr>
           <td class="no-bottom-border">Extra Bed</td>
           <td class="no-bottom-border text-right"></td>
-          <td class="no-bottom-border text-right">
-            @if(optional($order->expenses)->extra_bed != 0)
+          <td class="no-bottom-border text-right">            
               <?php $sisa = $sisa - optional($order->expenses)->extra_bed; ?>
-              Rp. {{ number_format(optional($order->expenses)->extra_bed, 0, ',', '.') }}
-            @endif
+              Rp. {{ number_format(optional($order->expenses)->extra_bed, 0, ',', '.') }}            
           </td>
           <td class="no-bottom-border text-right">
             Rp. {{ number_format($sisa, 0, ',', '.') }}</td>
         </tr>
+        @endif
+        @if(optional($order->expenses)->laundry != 0)
         <tr>
           <td class="no-bottom-border">Laundry</td>
           <td class="no-bottom-border text-right"></td>
-          <td class="no-bottom-border text-right">
-            @if(optional($order->expenses)->laundry != 0)
+          <td class="no-bottom-border text-right">            
               <?php $sisa = $sisa - optional($order->expenses)->laundry; ?>
-              Rp. {{ number_format(optional($order->expenses)->laundry, 0, ',', '.') }}
-            @endif
+              Rp. {{ number_format(optional($order->expenses)->laundry, 0, ',', '.') }}            
           </td>
           <td class="no-bottom-border text-right">
             Rp. {{ number_format($sisa, 0, ',', '.') }}</td>
         </tr>
+        @endif
+        @if(optional($order->expenses)->fnb != 0)
         <tr>
           <td class="no-bottom-border">Extra Food & Beverage</td>
           <td class="no-bottom-border text-right"></td>
-          <td class="no-bottom-border text-right">
-            @if(optional($order->expenses)->fnb != 0)
+          <td class="no-bottom-border text-right">            
               <?php $sisa = $sisa - optional($order->expenses)->fnb; ?>
-              Rp. {{ number_format(optional($order->expenses)->fnb, 0, ',', '.') }}
-            @endif
+              Rp. {{ number_format(optional($order->expenses)->fnb, 0, ',', '.') }}           
           </td>
           <td class="no-bottom-border text-right">
             Rp. {{ number_format($sisa, 0, ',', '.') }}</td>
         </tr>
+        @endif
+        @if(optional($order->expenses)->etc != 0)
         <tr>
           <td>Other</td>
           <td class="text-right"></td>
-          <td class="text-right">
-            @if(optional($order->expenses)->etc != 0)
+          <td class="text-right">            
               <?php $sisa = $sisa - optional($order->expenses)->etc; ?>
-              Rp. {{ number_format(optional($order->expenses)->etc, 0, ',', '.') }}
-            @endif
+              Rp. {{ number_format(optional($order->expenses)->etc, 0, ',', '.') }}           
           </td>
           <td class="text-right">
             Rp. {{ number_format($sisa, 0, ',', '.') }}</td>
-        </tr>        
+        </tr>
+        @endif
         <tr>
           <td align="center"><b>Total Billing</b></td>
           <td class="text-right" align="center" colspan="3"><b>Rp. {{number_format($order->revenue)}}</b></td>
