@@ -62,7 +62,7 @@
             <i class="fas fa-user mr-2"></i> 
             <span class="float-right text-muted text-sm">Profile</span>
           </a>
-          @if(auth()->user()->role == 'guru')
+          @if(auth()->user()->role == 'admin')
           <div class="dropdown-divider"></div>
           <a href="/setting" class="dropdown-item">
             <i class="fas fa-cogs mr-2"></i>
@@ -186,6 +186,32 @@
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     });
+  });
+  jQuery(document).ready(function(){
+    $(document).on('click', '.delete', function(){
+      var href = $(this).data('href');		
+
+			Swal.fire({			
+				title: 'Are you sure?',			
+				html: 
+          '<form id="hapus" action="'+href+'" method="POST">'+
+          '{{ csrf_field() }}'+
+          '<input type="hidden" name="_method" value="DELETE">'+
+          '</form>'+
+          "You won't be able to revert this!",
+				type: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				cancelButtonText: 'Cancel',
+				confirmButtonText: 'Yes, delete!'
+			}).then((result) => {
+				if (result.value) {
+          $('#hapus').submit();
+				}
+			})
+    });
+			
   });
 </script>
 @yield('footer')

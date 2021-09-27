@@ -57,8 +57,8 @@
       <table class="kotak" style="width: 100%;">
         <tr>
           <td class="header">In Payment of</td>
-          <td class="header">Credit</td>
           <td class="header">Debit</td>
+          <td class="header">Credit</td>
           <td class="header">Balance</td>
         </tr>
         <tr>
@@ -138,7 +138,7 @@
           <td class="text-right" align="center" colspan="3"><b>Rp. {{number_format($order->revenue)}}</b></td>
         </tr>
         <tr>
-          <td align="center"><b>Deposit Refund</b></td>
+          <td align="center"><b>Refund Deposit</b></td>
           <td class="text-right" align="center" colspan="3"><b>Rp. {{ number_format($sisa, 0, ',', '.')}}</b></tr>
       </table>
       <table class="ttd" style="margin-top:20px; width:100%;">

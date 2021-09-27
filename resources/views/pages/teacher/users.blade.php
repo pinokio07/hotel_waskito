@@ -59,8 +59,12 @@
                     <td class="text-center">{{$user->jenis_kelamin}}</td>
                     <td class="text-center">{{$user->kelas ?? "GURU"}}</td>
                     <td class="text-center">
+                      <a data-href="{{ route('users.reset', ['user' => $user->id]) }}" class="btn btn-xs btn-success elevation-2 reset">
+                        <i class="fas fa-sync"> Reset</i></a>
                       <a href="{{ route('users.edit', ['user' => $user->id]) }}" class="btn btn-xs btn-warning elevation-2">
                         <i class="fas fa-edit"></i> Edit</a>
+                      <a data-href="{{ route('users.destroy', ['user' => $user->id]) }}" class="btn btn-xs btn-danger elevation-2 delete">
+                          <i class="fas fa-trash"></i> Delete</a>
                     </td>
                   </tr>
                 @empty
@@ -114,6 +118,24 @@
 
 @section('footer')
   <script>
-    $('#tableStudent').DataTable();    
+    $('#tableStudent').DataTable();
+    
+    $(document).on('click', '.reset', function(){
+      var link = $(this).data('href');
+
+      Swal.fire({
+      title: 'Are you sure?',
+      text: "This user password will be reset to rahasia!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, reset it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location=link;
+      }
+    })
+    });
   </script>
 @endsection

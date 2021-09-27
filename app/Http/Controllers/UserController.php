@@ -100,6 +100,20 @@ class UserController extends Controller
       }
     }
 
+    public function destroy(User $user)
+    {
+      $user->delete();
+
+      return redirect('/users')->with('sukses', 'Delete user Success.');
+    }
+
+    public function reset(User $user)
+    {
+      $user->password = bcrypt('rahasia');
+
+      return redirect('/users')->with('sukses', 'Reset password success');
+    }
+
     public function export(Request $request)
     {
       return Excel::download(new UserExport, 'users.xlsx');

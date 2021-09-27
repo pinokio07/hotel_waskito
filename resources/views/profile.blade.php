@@ -82,7 +82,7 @@
                 <div class="form-group form-group-sm">
                   <label for="nis">NIS</label>
                   <input type="text" 
-                         @if($user->role == 'guru' || (isset($from) && $from == 'create')) name="nis" @else disabled @endif 
+                         @if($user->role == 'admin' || $user->role == 'guru' || (isset($from) && $from == 'create')) name="nis" @else readonly @endif 
                          id="nis" 
                          class="form-control form-control-sm" 
                          value="{{ old('nis') ?? $user->nis ?? '' }}"
@@ -130,10 +130,11 @@
                     <select name="role" id="role" class="custom-select custom-select-sm">
                       <option value="siswa" @if($user->role == 'siswa') selected @endif>Siswa</option>
                       <option value="guru" @if($user->role == 'guru') selected @endif>Guru</option>
+                      <option value="admin" @if($user->role == 'admin') selected @endif>Admin</option>
                     </select>
                   </div>
                 @endisset
-                @if($user->role == 'guru' && !isset($from))
+                @if($user->role != 'siswa' && !isset($from))
                   <div class="form-group form-group-sm">
                     <label for="password">Password</label>
                     <input type="password" 

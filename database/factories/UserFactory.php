@@ -26,7 +26,7 @@ class UserFactory extends Factory
             'nama' => $this->faker->name(),
             'nis' => 'admin',
             'password' => bcrypt('1'),
-            'role' => 'guru'
+            'role' => 'admin'
         ];
     }
 

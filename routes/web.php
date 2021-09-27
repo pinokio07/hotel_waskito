@@ -108,7 +108,7 @@ Route::group(['middleware' => 'auth'], function(){
          ->name('revenue');
   });
 
-  Route::group(['middleware' => 'checkRole:guru'], function(){
+  Route::group(['middleware' => 'checkRole:guru,admin'], function(){
     Route::get('/setting', [App\Http\Controllers\SettingController::class, 'index'])
         ->name('setting');
     Route::post('/setting', [App\Http\Controllers\SettingController::class, 'update'])
@@ -125,6 +125,10 @@ Route::group(['middleware' => 'auth'], function(){
             ->name('edit');
       Route::put('/{user}', [App\Http\Controllers\UserController::class, 'update'])
             ->name('update');
+      Route::delete('/{user}', [App\Http\Controllers\UserController::class, 'destroy'])
+            ->name('destroy');
+      Route::get('/reset/{user}', [App\Http\Controllers\UserController::class, 'reset'])
+            ->name('reset');
       Route::get('/export', [App\Http\Controllers\UserController::class, 'export'])
             ->name('export');
       Route::post('/import', [App\Http\Controllers\UserController::class, 'import'])
