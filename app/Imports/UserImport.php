@@ -23,6 +23,9 @@ class UserImport implements ToCollection
                       'role' => $row[5],
                       'password' => bcrypt('rahasia')
                     ]);
+            if($user->password == ''){
+              $user->password = bcrypt('rahasia');
+            }
             
           }
         }
