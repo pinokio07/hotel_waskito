@@ -22,12 +22,7 @@ class UserImport implements ToCollection
                       'kelas' => $row[4],
                       'role' => $row[5],
                       'password' => bcrypt('rahasia')
-                    ]);
-            // Start Edit Here
-            if($user->password == ''){
-              $user->password = bcrypt('rahasia');
-            }
-            // End Edit Here
+                    ]);            
           }
         }
     }
