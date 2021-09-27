@@ -174,7 +174,7 @@ $sub = Request::segment(2);
             </li>     
           </ul>
         </li>
-        @if(auth()->user()->role == 'guru')
+        @if(auth()->user()->role != 'siswa')
         <li class="nav-item">
           <a href="{{route('report')}}" class="nav-link @if($base == 'report') active @endif">
             <i class="nav-icon fas fa-user-graduate"></i>
