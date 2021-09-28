@@ -13,6 +13,7 @@
   .no-bottom-border{
     border-bottom: 1 transparent;
   }
+  .top-border{ border-top: 1px solid; }
   .bg-grey{background-color: rgb(224, 224, 224)}
   .text-right{text-align: right;}
   .text-center{text-align: center;}
@@ -134,8 +135,8 @@
         </tr>
         @endif
         <tr>
-          <td align="center"><b>Total Billing</b></td>
-          <td class="text-right" align="center" colspan="3"><b>Rp. {{number_format($order->revenue)}}</b></td>
+          <td align="center" class="top-border"><b>Total Billing</b></td>
+          <td class="text-right top-border" align="center" colspan="3"><b>Rp. {{number_format($order->revenue)}}</b></td>
         </tr>
         <tr>
           <td align="center"><b>Refund Deposit</b></td>
