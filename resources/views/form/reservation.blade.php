@@ -417,7 +417,7 @@
               <option value="{{$roomType->id}}"
                   @if(optional($order->room)->room_type_id == $roomType->id || old('room_type') == $roomType->id) selected
                   @elseif($selectedRoom != '' && $selectedRoom->room_type_id == $roomType->id) selected @endif
-                  data-room="{{$rooms->where('room_type_id', $roomType->id)->first()->id}}"
+                  data-room="{{$rooms->where('room_type_id', $roomType->id)->first()->id ?? ''}}"
                       >{{$roomType->nama}}</option>
             @empty                  
             @endforelse
