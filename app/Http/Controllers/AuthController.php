@@ -37,13 +37,20 @@ class AuthController extends Controller
     public function postprofile(Request $request)
     {
       $user = auth()->user();
-      $data = $request->validate([
-                        'nama' => 'required',
-                        'nis' => [
-                          'required',
-                          Rule::unique('users')->ignore($user->id),
-                        ]
-                      ]);
+      if($user->role != 'siswa'){
+        $data = $request->validate([
+          'nama' => 'required',
+          'nis' => [
+            'required',
+            Rule::unique('users')->ignore($user->id),
+          ]
+        ]);
+      } else {
+        $data = $request->validate([
+          'nama' => 'required'
+        ]);
+      }
+      
       if($data){
         $user->update($request->except(['password', 'avatar']));
 

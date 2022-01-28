@@ -82,7 +82,7 @@
                 <div class="form-group form-group-sm">
                   <label for="nis">NIS</label>
                   <input type="text" 
-                         @if($user->role == 'admin' || $user->role == 'guru' || (isset($from) && $from == 'create')) name="nis" @else readonly @endif 
+                         @if($user->role == 'admin' || $user->role == 'guru' || (isset($from) && $from == 'create')) name="nis" @else disabled @endif 
                          id="nis" 
                          class="form-control form-control-sm" 
                          value="{{ old('nis') ?? $user->nis ?? '' }}"
