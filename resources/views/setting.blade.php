@@ -26,7 +26,10 @@
               </div>
             </div>
           @endif 
-          <form action="{{ route('post.setting') }}" method="POST" enctype="multipart/form-data">
+          <form id="formSetting"
+                action="{{ route('post.setting') }}" 
+                method="POST" 
+                enctype="multipart/form-data">
             @csrf
             <div class="row">            
               <div class="col-md-5">
@@ -111,12 +114,7 @@
                              class="form-control form-control-sm"
                              accept="image/*">
                     </div>
-                  </div>
-                  <div class="col-6">
-                    <button type="submit" class="btn btn-success btn-sm btn-block elevation-2">
-                      <i class="fas fa-save"></i> Save
-                    </button>
-                  </div>
+                  </div>                  
                 </div>                
               </div> 
               <div class="col-md-5">
@@ -145,6 +143,17 @@
           </form>         
         </div>
         <!-- /.card-body -->
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-6">
+              <button type="submit" 
+                      class="btn btn-success btn-sm btn-block elevation-2" 
+                      form="formSetting">
+                <i class="fas fa-save"></i> Save
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- /.card -->
     </div>
