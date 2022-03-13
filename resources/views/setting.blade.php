@@ -145,7 +145,7 @@
         <!-- /.card-body -->
         <div class="card-footer">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-4">
               <button type="submit" 
                       class="btn btn-success btn-sm btn-block elevation-2" 
                       form="formSetting">
