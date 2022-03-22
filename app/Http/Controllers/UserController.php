@@ -14,8 +14,9 @@ class UserController extends Controller
 {
     public function index()
     {
+        //Get all Users
         $users = User::all();
-
+        //Return view for Users
         return view('pages.teacher.users', compact('users'));
     }
 
