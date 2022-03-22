@@ -37,6 +37,7 @@ class UserController extends Controller
               'nama' => 'required',
               'nis' => 'required|unique:users,nis'
             ]);
+      //If Data is Validated
       if($data){
         $user = User::create($request->except(['password', 'avatar']));
         $user->password = bcrypt('rahasia');
