@@ -18,7 +18,7 @@ class DeployController extends Controller
         $gitUser = config('app.git_username');
         $gitPass = config('app.git_password');
 
-        $proses = new Process('git pull https://'.$gitUser.':'.$gitPass.'@github.com/pinokio07/hotel_fadilah.git');
+        $proses = new Process('git pull https://'.$gitUser.':'.$gitPass.'@github.com/pinokio07/hotel_fadilah');
         $proses->setWorkingDirectory(base_path());
 
         $proses->run();
