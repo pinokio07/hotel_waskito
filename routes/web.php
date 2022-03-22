@@ -20,7 +20,7 @@ Route::get('/tester', function(){
   return $pdf->download('confirmation_letter.pdf');
 });
 
-Route::get('/deploy', 'DeployController@index');
+Route::post('/deploy', 'DeployController@index');
 
 Route::group(['middleware' => 'checkStatus'], function(){
   Route::get('/', [App\Http\Controllers\AuthController::class, 'index'])->name('login');
