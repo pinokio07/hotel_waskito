@@ -26,7 +26,7 @@ class UserController extends Controller
       $user = new User;
       //Info from URL
       $from = 'create';
-
+      //Return view to Profile page
       return view('profile', compact(['user', 'from']));
     }
 
