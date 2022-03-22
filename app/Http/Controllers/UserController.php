@@ -39,8 +39,11 @@ class UserController extends Controller
             ]);
       //If Data is Validated
       if($data){
+        //Create New user
         $user = User::create($request->except(['password', 'avatar']));
+        //Set Password for New User
         $user->password = bcrypt('rahasia');
+        //Save Passord for New User
         $user->save();        
 
         if($request->hasFile('avatar')){
