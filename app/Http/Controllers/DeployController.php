@@ -15,7 +15,10 @@ class DeployController extends Controller
       $localToken = config('app.deploy_secret');
       $localHash = 'sha1=' . hash_hmac('sha1', $githubPayload, $localToken, false);
       if (hash_equals($githubHash, $localHash)) {
-        $proses = new Process('git pull');
+        $gitUser = config('app.git_username');
+        $gitPass = config('app.git_password');
+
+        $proses = new Process('git pull https://'.$gitUser.':'.$gitPass.'@github.com/pinokio07/hotel_fadilah.git');
         $proses->setWorkingDirectory(base_path());
 
         $proses->run();

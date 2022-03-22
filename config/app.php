@@ -234,4 +234,8 @@ return [
 
     ],
 
+    'git_deploy_secret' => env('GIT_DEPLOY_SECRET'),
+    'git_username' => env('GIT_USERNAME'),
+    'git_password' => env('GIT_PASSWORD'),
+
 ];
