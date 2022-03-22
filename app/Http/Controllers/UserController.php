@@ -22,7 +22,9 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
+      //Add New Empty User Model
       $user = new User;
+      //Info from URL
       $from = 'create';
 
       return view('profile', compact(['user', 'from']));
