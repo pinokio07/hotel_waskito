@@ -46,6 +46,7 @@ class UserController extends Controller
         //Save Passord for New User
         $user->save();        
 
+        //If has Image for User
         if($request->hasFile('avatar')){
           $filelama = public_path().'/img/users/'.$user->avatar;
           if(!is_dir($filelama) && file_exists($filelama)){
