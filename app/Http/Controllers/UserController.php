@@ -32,6 +32,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+      //Validated data User
       $data = $request->validate([
               'nama' => 'required',
               'nis' => 'required|unique:users,nis'
