@@ -79,7 +79,7 @@ class UserController extends Controller
       $user->load('order');
       //Set From URL
       $from = "edit";
-
+      //Return view profile page
       return view('profile', compact(['user', 'from']));
     }
 
