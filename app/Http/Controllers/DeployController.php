@@ -8,7 +8,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class DeployController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
       // $githubPayload = $request->getContent();
       // $githubHash = $request->header('X-Hub-Signature');
