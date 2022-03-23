@@ -56,13 +56,18 @@ class UserController extends Controller
             unlink($filelama);
           }
 
+          //Get Extension from File
           $ext = $request->file('avatar')->getClientOriginalExtension();
+          //Set Name for file
           $nama = Str::slug($request->nama).'-'.round(microtime(true)).'.'.$ext;
+          //Move file to users folder
           $request->file('avatar')->move('img/users/', $nama);
+          //Assign User avatar to DB
           $user->avatar = $nama;
+          //Save DB
           $user->save();
         }
-
+        //Return redirect to Users
         return redirect('/users')->with('sukses', 'Create User Success.');
 
       }
