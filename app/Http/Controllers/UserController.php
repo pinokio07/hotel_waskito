@@ -50,8 +50,10 @@ class UserController extends Controller
         if($request->hasFile('avatar')){
           //Get User Old file
           $filelama = public_path().'/img/users/'.$user->avatar;
+          //Check if Old File Exists
           if(!is_dir($filelama) && file_exists($filelama)){
-          unlink($filelama);
+            //Remove Old File
+            unlink($filelama);
           }
 
           $ext = $request->file('avatar')->getClientOriginalExtension();
