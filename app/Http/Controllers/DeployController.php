@@ -16,15 +16,15 @@ class DeployController extends Controller
       // $localHash = 'sha1=' . hash_hmac('sha1', $githubPayload, $localToken, false);
       // if (hash_equals($githubHash, $localHash)) {
 
-        $abc = $request->sha;
+        // $abc = $request->sha;
 
-        if(!$abc){
-          return "FAILED";
-        }
+        // if(!$abc){
+        //   return "FAILED";
+        // }
 
-        $localToken = config('app.git_deploy_secret');
+        // $localToken = config('app.git_deploy_secret');
 
-        if($abc === $localToken){
+        // if($abc === $localToken){
           $gitUser = config('app.git_username');
           $gitPass = config('app.git_password');
   
@@ -38,7 +38,7 @@ class DeployController extends Controller
           } else {
               throw new ProcessFailedException($proses);
           }
-        }
+        // }
         
       // }
     }
