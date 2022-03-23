@@ -75,7 +75,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+      //Load Relation Order
       $user->load('order');
+      //Set From URL
       $from = "edit";
 
       return view('profile', compact(['user', 'from']));
