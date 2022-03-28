@@ -11,7 +11,29 @@
           <h3 class="card-title">Expected Guests</h3>
         </div>
         <!-- /.card-header -->
-        <div class="card-body">          
+        <div class="card-body">
+          <form id="formArrivals" action="{{ url()->current() }}" method="get">
+            <div class="row">
+              <div class="col-12 col-md-4">
+                <div class="form-group">
+                  <label for="dates">Dates Range</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="far fa-calendar-alt"></i>
+                      </span>
+                    </div>
+                    <input type="text" name="dates" id="dates"
+                            class="form-control float-right"
+                            value="{{old('dates') 
+                                      ?? Request::get('dates') 
+                                      ?? today()->format('d/m/Y')}}">
+                  </div>
+                  <!-- /.input group -->
+                </div>
+              </div>
+            </div>
+          </form>
           <div class="table-responsive">
             <table class="table table-sm table-bordered text-sm" id="tableGuest" style="width: 100%;">
               <thead>
@@ -60,6 +82,18 @@
 
 @section('footer')
   <script>
+    $(function(){
+      $('#dates').daterangepicker({
+        format: 'L',
+        autoApply: true,        
+        locale: {
+                format: 'DD/MM/YYYY'
+                },
+        minDate: "{{ today()->format('d/m/Y') }}",
+      }).on('apply.daterangepicker', function(ev, picker) {
+          $('#formArrivals').submit();
+      });
+    })
     $('#tableGuest').DataTable();
   </script>
 @endsection

@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->set('jenis_kelamin', ['L', 'P'])->default('L');
             $table->string('kelas')->nullable();
             $table->string('password');
-            $table->set('role', ['guru', 'siswa'])->default('siswa');
+            $table->set('role', ['guru', 'siswa', 'admin'])->default('siswa');
             $table->string('avatar')->nullable();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
             $table->timestamps();

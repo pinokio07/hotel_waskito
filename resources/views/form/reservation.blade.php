@@ -652,7 +652,7 @@
                 var end   = moment(picker.endDate.format('YYYY-MM-DD'));
                 var diff = end.diff(start, 'days'); // returns correct number
                 $('#nights').val(diff).change();
-      });;
+      });
     });
     jQuery(document).ready(function(){
 

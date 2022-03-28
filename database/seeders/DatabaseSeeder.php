@@ -13,8 +13,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(1)->create();
-        \App\Models\Sekolah::create([
+        \App\Models\User::firstOrCreate([
+          'nama' => 'Administrator',
+          'nis' => 'admin',
+          'jenis_kelamin' => 'L',
+          'kelas' => 'GURU',
+          'password' => '$2y$10$tQIrzTYMREkC4kaLkg9eL.BPB4C3I0DZt565pw10ffiIWxq6ePSgi',
+          'role' => 'admin',
+        ]);
+        \App\Models\Sekolah::firstOrCreate([
           'nama' => 'SMK Waskito',
           'nama_hotel' => 'Hotel Waskito',
         ]);
